@@ -145,8 +145,9 @@ _link() {
 }
 
 # Main
-# FIXME: cd to recipe location as sourced paths are relative to it
 if [ -e "$recipe" ]; then
+  recipe_path="${recipe%recipe}" 
+  cd "$recipe_path"
   # shellcheck disable=SC1090
   source "$recipe"
 else
